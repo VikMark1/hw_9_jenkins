@@ -2,3 +2,4 @@ pytest
 selene>=2.0.0b10
 allure-pytest
 python-dotenv==0.20.0
+selenium~=4.2.0
