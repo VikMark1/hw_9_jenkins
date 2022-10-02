@@ -1,3 +1,5 @@
+import os
+
 import allure
 from allure_commons.types import Severity
 from selene import have, command
@@ -32,6 +34,7 @@ def test_student_registration_form():
         #registration_form.fill_birthday(datetime.date(2001, 10, 7))
         registration_form.fill_subjects(('English', 'Maths'))
         registration_form.fill_hobbies(user.Hobby.Music, user.Hobby.Reading)
+        browser.element('#uploadPicture').send_keys(os.path.abspath('resources/test.png'))
         registration_form.fill_address('Test address')
         registration_form.scroll_to_state()
         registration_form.set_state('NCR')
@@ -50,7 +53,7 @@ def test_student_registration_form():
                 ('Date of Birth', '07 October,1991'),
                 ('Subjects', 'English, Maths'),
                 ('Hobbies', 'Music, Reading'),
-                #('Picture', 'test.png'),
+                ('Picture', 'test.png'),
                 ('Address', 'Test address'),
                 ('State and City', 'NCR Delhi')
             ]
